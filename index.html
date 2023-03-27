@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <title>My Todo List</title>
+  <meta name="author" content="Michael Borck">
+  <meta name="description" content="Explore flatland and interact with its inhabitants">
+  <link rel="stylesheet" type="text/css" href="css/style.css">
+</head>
+
+
+<body>
+ 
+  <h1>My Todo List</h1>
+  <form>
+    <label>
+      Task Name:
+      <input id="task-input" type="text" placeholder="Do assignment">
+    </label>
+    <button type="button" id="add-task">
+      Add Task
+    </button>
+  </form>
+  <ul id="todo-list">
+  </ul>
+
+  <button type="button" id="show-all">All</button>
+  <button type="button" id="show-active">Active</button>
+  <button type="button" id="show-completed">Completed</button>
+
+ 
+
+  <!--
+  Recall in the earlier version of the todo-app the tasks we added were all
+  bunched up, that's because we're just adding text in to the container. What we
+  actually want to do is add <li> elements like our earlier list. This is a
+  little involved and we'll do it with two steps.
+
+  Based on our earlier **model** we want to insert into the DOM a <li> element
+  which contains a <label> and <input> checkbox. By adding some classes to our
+  document, specifically to the template we can style the todo items, add to
+  <li>, <input> elements.  The styling is already setup in the external CSS
+  file so we just need to add hooks via the JavaScript to locate and style based
+  on classes and weather or not the the checkbox is checked or not!
+
+  First we create a template,  This <script> tag will act as a template for our
+  JavaScript. We'll retrieve the content of this script tag and then REPLACE the
+  comment sting that says "<!-- TASK_NAME ->" so that it has our tasks name in
+  it.  
+
+  Templating is pretty cool.  Notice the the <script> tag is just another HTML5
+  element. We can access any element in the DOM tree via Javascript.  So we
+  follow our pattern of adding an 'id' attribute, using the attribute to locate
+  the element in JavaScript.
+
+  Note:  
+    1. the 'id' attribute must occur after the 'type' attribute 
+    2. *** THIS 'TEMPLATE' NEEDS TO BE HERE IN THE HTML ***
+  -->
+  <script type="text/template" id="list-item-template">
+    <li class="task">
+      <label>
+        <input class="checkbox" type="checkbox">
+        <!-- TASK_NAME -->
+      </label>
+    </li>
+  </script>
+
+  <script src="js/script.js"></script>
+</body>
+
+</html>
